@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 200px;
+}
+
+
+p {
+    color: white;
+    font-size: 20px;
+}
+
+
+button {
+    background-color: #c51111;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+.logo-luidi-mario {
+    width: 500px;
+}
+
+
+.div-1 {
+    width: 46%;
+}
+
+
+body {
+    height: 100vh;
+}
+
+
+.caixa-principal {
+    display: flex;
+    padding: 100px;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.caixa-video {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+
+video {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+
+.mascara-video {
+
+    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%,
+            rgba(10, 12, 16, 0.7) 50%,
+            rgba(10, 12, 16, 0.99) 85%);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+}
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+
+
+.header img {
+    width: 70px;
+}
+
+
+
+.header a {
+
+    color: white;
+    margin-right: 20px;
+    font-size: 24px;
+    top: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+
+
+.header a:hover {
+    color: #c51111;
+    transition: 0.5s ease-in-out;
+}
+
+
+.caixa-link-whatsapp {
+    position: fixed;
+    bottom: 15px;
+    right: 12px;
+}
+
+
+
+.link-whatsapp img {
+    width: 60px;
+}
+
+
+.link-whatsapp {
+    cursor: pointer;
+}
+
+
+form {
+    background-color: white;
+
+    position: fixed;
+    top: 40%;
+    left: -340px;
+
+    /* 
+    posição final
+    left: 50%; 
+     transform: translateX(-50%);
+     */
+
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    padding: 20px;
+    border-radius: 5px;
+    width: 350px;
+    z-index: 1;
+    transition: 0.5s left ease-in-out;
+}
+
+
+form input {
+    height: 40px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    outline-color: #18d80f;
+
+}
+
+
+form textarea {
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    outline-color: #18d80f;
+    height: 100px;
+}
+
+.mascara-formulario {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
+    visibility: hidden;
+    transition: 0.5s visibility ease-in-out;
+}
+
+@media (max-width: 768px) {
+
+    .caixa-principal {
+        flex-direction: column;
+        padding: 50px 20px;
+        height: auto;
+        gap: 30px;
+    }
+
+    .div-1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .div-2 {
+        width: 100%;
+    }
+
+    .logo-luidi-mario {
+        width: 300px;
+    }
+
+    img {
+        width: 150px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        height: 45px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .header a {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    form {
+        width: 90%;
+        left: -100%;
+    }
+}
+
+
+/* CELULARES (até 480px) */
+@media (max-width: 480px) {
+
+    .caixa-principal {
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    .logo-mario {
+        width: 120px;
+    }
+
+    .logo-luidi-mario {
+        width: 200px;
+    }
+
+    img {
+        width: 100px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .header {
+        padding: 10px 5px;
+    }
+
+    .header img {
+        width: 50px;
+    }
+
+    .header a {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .link-whatsapp img {
+        width: 50px;
+    }
+
+    form {
+        width: 95%;
+        padding: 15px;
+        left: -100%;
+    }
+
+    form input,
+    form textarea {
+        font-size: 14px;
+    }
+
+    .mascara-formulario {
+        z-index: 0;
+    }
+}
