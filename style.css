@@ -8,12 +8,10 @@ img {
     width: 200px;
 }
 
-
 p {
     color: white;
     font-size: 20px;
 }
-
 
 button {
     background-color: #c51111;
@@ -27,21 +25,18 @@ button {
     cursor: pointer;
 }
 
-
 .logo-luidi-mario {
     width: 500px;
 }
-
 
 .div-1 {
     width: 46%;
 }
 
-
 body {
     height: 100vh;
+    overflow-x: hidden;
 }
-
 
 .caixa-principal {
     display: flex;
@@ -51,32 +46,29 @@ body {
     height: 100vh;
 }
 
-
 .caixa-video {
     position: fixed;
     top: 0;
     z-index: -1;
 }
 
-
 video {
     min-width: 100vw;
     min-height: 100vh;
 }
 
-
 .mascara-video {
-
-    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%,
-            rgba(10, 12, 16, 0.7) 50%,
-            rgba(10, 12, 16, 0.99) 85%);
+    background: linear-gradient(
+        109deg,
+        rgba(10, 12, 16, 0.99) 15%,
+        rgba(10, 12, 16, 0.7) 50%,
+        rgba(10, 12, 16, 0.99) 85%
+    );
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
 }
-
-
 
 .header {
     display: flex;
@@ -85,16 +77,11 @@ video {
     padding: 20px;
 }
 
-
-
 .header img {
     width: 70px;
 }
 
-
-
 .header a {
-
     color: white;
     margin-right: 20px;
     font-size: 24px;
@@ -103,45 +90,34 @@ video {
     text-decoration: none;
 }
 
-
-
-
 .header a:hover {
     color: #c51111;
     transition: 0.5s ease-in-out;
 }
 
-
 .caixa-link-whatsapp {
     position: fixed;
     bottom: 15px;
     right: 12px;
+    z-index: 10;
 }
-
-
 
 .link-whatsapp img {
     width: 60px;
 }
 
-
 .link-whatsapp {
     cursor: pointer;
 }
 
-
+/* ===== FORMULÁRIO ===== */
 form {
     background-color: white;
-
     position: fixed;
-    top: 40%;
-    left: -340px;
-
-    /* 
-    posição final
-    left: 50%; 
-     transform: translateX(-50%);
-     */
+    top: 50%;
+    /* Começa completamente fora da tela pela esquerda */
+    left: -110vw;
+    transform: translateY(-50%);
 
     display: flex;
     gap: 20px;
@@ -150,10 +126,15 @@ form {
     padding: 20px;
     border-radius: 5px;
     width: 350px;
-    z-index: 1;
-    transition: 0.5s left ease-in-out;
+    z-index: 999;
+    transition: left 0.5s ease-in-out;
 }
 
+/* Classe ativa: centraliza o formulário na tela */
+form.ativo {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 form input {
     height: 40px;
@@ -161,9 +142,7 @@ form input {
     border-radius: 5px;
     border: 1px solid gray;
     outline-color: #18d80f;
-
 }
-
 
 form textarea {
     padding-left: 5px;
@@ -173,16 +152,32 @@ form textarea {
     height: 100px;
 }
 
+/* ===== MÁSCARA DO FORMULÁRIO ===== */
 .mascara-formulario {
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
-    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
+    left: 0;
+    background: linear-gradient(
+        109deg,
+        rgba(10, 12, 16, 0.99) 15%,
+        rgba(10, 12, 16, 0.7) 50%,
+        rgba(10, 12, 16, 0.99) 85%
+    );
     visibility: hidden;
-    transition: 0.5s visibility ease-in-out;
+    opacity: 0;
+    z-index: 998;
+    transition: visibility 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
+/* Classe ativa da máscara */
+.mascara-formulario.ativa {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ===== TABLETS (até 768px) ===== */
 @media (max-width: 768px) {
 
     .caixa-principal {
@@ -222,6 +217,7 @@ form textarea {
         flex-direction: column;
         gap: 15px;
         padding: 10px;
+        text-align: center;
     }
 
     .header a {
@@ -230,13 +226,17 @@ form textarea {
     }
 
     form {
-        width: 90%;
-        left: -100%;
+        width: 85%;
+        left: -110vw;
+    }
+
+    form.ativo {
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
-
-/* CELULARES (até 480px) */
+/* ===== CELULARES (até 480px) ===== */
 @media (max-width: 480px) {
 
     .caixa-principal {
@@ -284,9 +284,14 @@ form textarea {
     }
 
     form {
-        width: 95%;
+        width: 92%;
         padding: 15px;
-        left: -100%;
+        left: -110vw;
+    }
+
+    form.ativo {
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     form input,
@@ -295,6 +300,6 @@ form textarea {
     }
 
     .mascara-formulario {
-        z-index: 0;
+        z-index: 998;
     }
 }

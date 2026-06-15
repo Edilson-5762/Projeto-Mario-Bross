@@ -1,25 +1,21 @@
 const formulario = document.querySelector(".formulario");
-const mascara = document.querySelector(".mascara-formulario")
-
+const mascara = document.querySelector(".mascara-formulario");
 
 function mostrarForm() {
-    formulario.style.left = "50%";
-    formulario.style.transform = "translateX(-50%)";
-    mascara.style.visibility = "visible";
-
+    formulario.classList.add("ativo");
+    mascara.classList.add("ativa");
 }
-
 
 function esconderForm() {
-    formulario.style.left = "-340px";
-    formulario.style.transform = "translateX(0)";
-    mascara.style.visibility = "hidden";
-
+    formulario.classList.remove("ativo");
+    mascara.classList.remove("ativa");
 }
 
-
-function ixibirForm() {
-    formulario.style.left = "50%";
-    formulario.style.transform = "translateX(-50%)";
-    mascara.style.visibility = "visible";
+function exibirForm() {
+    formulario.classList.add("ativo");
+    mascara.classList.add("ativa");
 }
+
+mascara.addEventListener("click", () => {
+    esconderForm();
+});
